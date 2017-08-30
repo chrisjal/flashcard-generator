@@ -1,0 +1,23 @@
+{
+  "name": "flashcard-generator",
+  "version": "1.0.0",
+  "description": "Simple flashcard application with the option for cloze-deletion (removing some text) in Javascript/node while utilizing the Inquirer package in node.js",
+  "main": "main.js",
+  "dependencies": {
+    "inquirer": "^3.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisjal/flashcard-generator.git"
+  },
+  "author": "Chris Jalallian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisjal/flashcard-generator/issues"
+  },
+  "homepage": "https://github.com/chrisjal/flashcard-generator#readme"
+}
