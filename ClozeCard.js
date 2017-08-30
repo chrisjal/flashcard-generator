@@ -1,40 +1,46 @@
-var BasicCard = require("./BasicCard.js");
+let BasicCard = require("./BasicCard.js");
 
-var ClozeCard = function(text, cloze) {
+let ClozeCard = function(text, cloze) {
 	this.text = text;
 	this.cloze = cloze;
+	this.partial = function() {
+		// Check to see if the entered text contains the cloze text
+		if (this.text.includes(this.cloze)) {
+			// returns value of text with the cloze value replaced with the string "..."
+			return this.text.replace(this.cloze, "...");
+		}
+		else {
+			// If cloze text is not in entered text, console log the error
+			console.log("The cloze deletion does not appear in the input text!");
+		}
+	};
+	this.fullText = text;
 };
 
-// The constructed object should have a cloze property that contains only the cloze-deleted portion of the text.
-
-// The constructed object should have a partial property that contains only the partial text.
-
-// The constructed object should have a fullText property that contains only the full text.
-
-
-// Test utilities
-var firstPresident = new BasicCard(
-    "Who was the first president of the United States?", "George Washington");
+// BasicCard Testing
+// var firstPresident = new BasicCard("Who was the first president of the United States?", "George Washington");
 
 // "Who was the first president of the United States?"
-console.log(firstPresident.front); 
+// console.log(firstPresident.front); 
 
 // "George Washington"
-console.log(firstPresident.back); 
+// console.log(firstPresident.back); 
 
-var firstPresidentCloze = new ClozeCard(
-    "George Washington was the first president of the United States.", "George Washington");
+// ClozeCard testing
+// var firstPresidentCloze = new ClozeCard("George Washington was the first president of the United States.", "George Washington");
 
 // "George Washington"
 // console.log(firstPresidentCloze.cloze); 
 
 // " ... was the first president of the United States.
-// console.log(firstPresidentCloze.partial);
+// Clozecard.partial is a function in the constructor and needs to be called to provide a value
+// console.log(firstPresidentCloze.partial());
 
 // "George Washington was the first president of the United States.
 // console.log(firstPresidentCloze.fullText);
 
-// Should throw or log an error because "oops" doesn't appear in "This doesn't work"
+// Should throw or log an error because "oops" doesn't appear in "This doesn't work" (undefined)
 // var brokenCloze = new ClozeCard("This doesn't work", "oops");
+// console.log(brokenCloze.partial());
 
 module.exports = ClozeCard;
